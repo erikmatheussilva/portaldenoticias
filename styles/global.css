@@ -21,7 +21,16 @@
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color-primary);
-    font: var(--text);
+  background-color: var(--bg-color);
+  color: var(--text-color-primary);
+  font: var(--text);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: var(--brand-color-light);
 }
