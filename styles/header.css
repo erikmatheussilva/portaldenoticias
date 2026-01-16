@@ -1,8 +1,12 @@
-header {
-  align-items: center;
+nav {
+  /* align-items: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; */
   padding: 20px 32px;
+  display: grid;
+  justify-content: space-between;
+  grid-auto-flow: column;
+  border-bottom: 2px solid var(--stroke-color);
 }
 
 .menu {
@@ -15,20 +19,21 @@ header {
   color: var(--brand-color-light);
 }
 
-header a {
+nav a {
   display: inline-flex;
   align-items: center;
   gap: 8px;
 }
 
-header a img {
+/* hover effect on nav icons */
+nav a img {
   width: 20px;
   height: 20px;
   filter: brightness(0) invert(1);
   transition: filter 0.2s ease;
 }
 
-header a:hover img {
+nav a:hover img {
   filter: brightness(0) saturate(100%) invert(70%) sepia(49%) saturate(680%)
     hue-rotate(190deg) brightness(90%) contrast(92%);
 }
