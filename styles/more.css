@@ -1,0 +1,37 @@
+.more header {
+  padding-block: 12px 24px;
+  font: var(--span);
+}
+
+.more {
+  border-top: 2px solid var(--stroke-color);
+
+  header a {
+    justify-self: end;
+    align-items: center;
+    gap: 8px;
+
+    span {
+      background-image: url(../assets/icons/ArrowRight1.svg);
+      background-repeat: no-repeat;
+      height: 16px;
+      width: 16px;
+    }
+    &:hover span {
+      background-image: url(../assets/icons/ArrowRightHover.svg);
+    }
+  }
+
+  /* & > div {
+    grid-template-columns: repeat(4, 292px);
+    justify-content: space-between;
+  } */
+
+  img {
+    /* display: block;
+    object-fit: cover; */
+    height: 160px;
+    /* max-width: 100%; */
+    /* min-width: 100%; */
+  }
+}

@@ -21,6 +21,10 @@
   gap: 16px;
 }
 
+.gap-32{
+  gap: 32px;
+}
+
 /* .padding-block-20{
   padding-block: 20px;
 } */
