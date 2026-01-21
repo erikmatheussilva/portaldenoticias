@@ -26,9 +26,13 @@ body {
   font: var(--text);
 }
 
-main{
-  padding: 32px;
+main {
+  margin-top: 40px;
+  gap: 80px;
+}
 
+img {
+  max-width: 100%;
 }
 
 a {
@@ -40,9 +44,3 @@ a:hover {
   color: var(--brand-color-light);
 }
 
-.divider {
-  width: 100%;
-  height: 2px;
-  margin: 0px 0px;
-  background-color: var(--stroke-color);
-}

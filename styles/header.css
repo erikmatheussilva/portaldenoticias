@@ -2,11 +2,12 @@ nav {
   /* align-items: center;
   display: flex;
   justify-content: space-between; */
-  padding: 20px 32px;
+  padding-block: 14px;
   display: grid;
   justify-content: space-between;
   grid-auto-flow: column;
   border-bottom: 2px solid var(--stroke-color);
+  border-inline: none;
 }
 
 .menu {
