@@ -1,7 +1,4 @@
 @import url(global.css);
 @import url(utilities.css);
 @import url(header.css);
-@import url(gallery.css);
-@import url(weekly-news.css);
-@import url(ai.css);
-@import url(more.css);
+@import url(sections.css);

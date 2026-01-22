@@ -1,0 +1,167 @@
+section header {
+  padding-block: 12px 24px;
+  font: var(--span);
+  border-top: 2px solid var(--stroke-color);
+}
+
+/* highlights */
+
+#highlights {
+  grid-area: highlights;
+  gap: 16px;
+  .image {
+    display: block;
+    object-fit: cover;
+    height: 100%;
+    border-radius: 4px;
+  }
+  #highlights div:nth-child(5) {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+  }
+  .other-highlights {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .highlight {
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(2, 6, 23, 0) 0%, #020617 100%);
+    }
+    figcaption {
+      position: absolute;
+      bottom: 0;
+      padding: 32px 12px 12px 12px;
+      h2 {
+        font: var(--heading3);
+        margin-top: 8px;
+      }
+    }
+  }
+  #first-highlight {
+    figcaption {
+      padding: 72px 24px 24px 24px;
+    }
+  }
+}
+
+/* weekly */
+
+#weekly {
+  grid-area: weekly;
+  header a {
+    justify-self: end;
+    align-items: center;
+    gap: 8px;
+
+    span {
+      background-image: url(../assets/icons/ArrowRight1.svg);
+      background-repeat: no-repeat;
+      height: 16px;
+      width: 16px;
+    }
+    &:hover span {
+      background-image: url(../assets/icons/ArrowRightHover.svg);
+    }
+  }
+
+  & > div {
+    grid-template-columns: repeat(4, 292px);
+    justify-content: space-between;
+  }
+
+  img {
+    /* display: block;
+    object-fit: cover; */
+    height: 160px;
+    /* max-width: 100%; */
+    /* min-width: 100%; */
+  }
+  .weekly-card {
+    position: relative;
+    .tag {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+    }
+    p {
+      margin-top: 8px;
+      font-weight: 900;
+      font: var(--heading2);
+    }
+  }
+}
+
+/* ai */
+
+#ai {
+  grid-area: ai;
+
+  header a {
+    justify-self: end;
+    align-items: center;
+    gap: 8px;
+
+    span {
+      background-image: url(../assets/icons/ArrowRight1.svg);
+      background-repeat: no-repeat;
+      height: 16px;
+      width: 16px;
+    }
+    &:hover span {
+      background-image: url(../assets/icons/ArrowRightHover.svg);
+    }
+  }
+
+  h3 {
+    font: var(--heading2);
+    margin-block: 8px 4px;
+  }
+
+  img {
+    object-fit: cover;
+    height: 176px;
+    aspect-ratio: 1/1;
+  }
+}
+
+/* more */
+
+#more {
+  grid-area: aside;
+  margin-top: 52px;
+  header a {
+    justify-self: end;
+    align-items: center;
+    gap: 8px;
+
+    span {
+      background-image: url(../assets/icons/ArrowRight1.svg);
+      background-repeat: no-repeat;
+      height: 16px;
+      width: 16px;
+    }
+    &:hover span {
+      background-image: url(../assets/icons/ArrowRightHover.svg);
+    }
+  }
+  h3 {
+    font: var(--heading2);
+    margin-top: 8px;
+  }
+
+  img {
+    object-fit: cover;
+    height: 72px;
+    aspect-ratio: 1/1;
+  }
+}
+
+aside {
+  grid-area: aside;
+}

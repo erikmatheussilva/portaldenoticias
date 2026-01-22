@@ -6,8 +6,20 @@ nav {
   display: grid;
   justify-content: space-between;
   grid-auto-flow: column;
-  border-bottom: 2px solid var(--stroke-color);
-  border-inline: none;
+  position: relative;
+}
+
+nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: 0;
+  width: 100vw;
+  height: 2px;
+  background-color: var(--stroke-color);
+  transform: translateX(-50%);
+  pointer-events: none;
 }
 
 .menu {

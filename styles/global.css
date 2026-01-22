@@ -26,9 +26,20 @@ body {
   font: var(--text);
 }
 
+.container {
+  max-width: 1280px;
+  padding-inline: 32px;
+  margin-inline: auto;
+}
+
 main {
-  margin-top: 40px;
-  gap: 80px;
+  margin-block: 40px;
+  row-gap: 80px;
+  column-gap: 32px;
+  grid-template-columns: 2fr 1.4fr;
+  grid-template-areas: "highlights highlights"
+                        "weekly weekly"
+                        "ai aside";
 }
 
 img {
@@ -42,5 +53,13 @@ a {
 
 a:hover {
   color: var(--brand-color-light);
+}
+
+h2 {
+  font: var(--heading2);
+}
+
+h1 {
+  font: var(--heading1);
 }
 
