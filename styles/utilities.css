@@ -10,12 +10,30 @@
   grid-auto-flow: row;
 }
 
-.gap-16{
+.gap-16 {
   gap: 16px;
 }
 
-.gap-32{
+.gap-32 {
   gap: 32px;
+}
+
+.mobile-only {
+  display: initial;
+}
+
+.desktop-only {
+  display: none;
+}
+
+@media (width >= 80em) {
+  .mobile-only {
+    display: none;
+  }
+
+  .desktop-only {
+    display: grid;
+  }
 }
 
 #divider {
@@ -24,7 +42,7 @@
   background-color: var(--stroke-color);
 }
 
-.tag{
+.tag {
   display: inline-block;
   background-color: var(--brand-color-dark);
   border-radius: 4px;
@@ -33,5 +51,5 @@
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--text-color-primary);
-  box-shadow: 0px 4px 16px rgba(2, 6, 23, 0.25); 
+  box-shadow: 0px 4px 16px rgba(2, 6, 23, 0.25);
 }

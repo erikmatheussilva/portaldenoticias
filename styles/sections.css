@@ -1,26 +1,27 @@
 section header {
   padding-block: 12px 24px;
-  font: var(--span);
   border-top: 2px solid var(--stroke-color);
+  & h3 {
+    font: var(--small);
+  }
+  & a {
+    strong {
+      font: var(--span);
+    }
+  }
 }
 
-/* highlights */
-
 #highlights {
-  grid-area: highlights;
+  margin-bottom: 1.5rem;
+  grid-auto-flow: row;
   gap: 16px;
   .image {
     display: block;
     object-fit: cover;
-    height: 100%;
     border-radius: 4px;
   }
-  #highlights div:nth-child(5) {
-    grid-column: 1 / 3;
-    grid-row: 1 / 3;
-  }
   .other-highlights {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 16px;
   }
   .highlight {
@@ -44,16 +45,33 @@ section header {
     }
   }
   #first-highlight {
+    margin-top: 1rem;
+    .image {
+      height: 400px;
+    }
     figcaption {
-      padding: 72px 24px 24px 24px;
+      padding: 36px 12px 12px 12px;
+      h1 {
+        font: var(--heading2);
+        margin-top: 8px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+      }
     }
   }
 }
 
-/* weekly */
-
 #weekly {
-  grid-area: weekly;
+  margin-bottom: 1.5rem;
+
+  & > div {
+    grid-auto-flow: row;
+  }
+
   header a {
     justify-self: end;
     align-items: center;
@@ -70,18 +88,6 @@ section header {
     }
   }
 
-  & > div {
-    grid-template-columns: repeat(4, 292px);
-    justify-content: space-between;
-  }
-
-  img {
-    /* display: block;
-    object-fit: cover; */
-    height: 160px;
-    /* max-width: 100%; */
-    /* min-width: 100%; */
-  }
   .weekly-card {
     position: relative;
     .tag {
@@ -97,24 +103,26 @@ section header {
   }
 }
 
-/* ai */
-
 #ai {
-  grid-area: ai;
-
-  header a {
-    justify-self: end;
-    align-items: center;
-    gap: 8px;
-
-    span {
-      background-image: url(../assets/icons/ArrowRight1.svg);
-      background-repeat: no-repeat;
-      height: 16px;
-      width: 16px;
+  header {
+    & h3 {
+      font: var(--small);
     }
-    &:hover span {
-      background-image: url(../assets/icons/ArrowRightHover.svg);
+    & a {
+      align-items: center;
+      gap: 8px;
+      span {
+        background-image: url(../assets/icons/ArrowRight1.svg);
+        background-repeat: no-repeat;
+        height: 16px;
+        width: 16px;
+      }
+      strong {
+        font: var(--span);
+      }
+      &:hover span {
+        background-image: url(../assets/icons/ArrowRightHover.svg);
+      }
     }
   }
 
@@ -125,34 +133,112 @@ section header {
 
   img {
     object-fit: cover;
-    height: 176px;
+    height: 80px;
     aspect-ratio: 1/1;
+  }
+
+  /* Keep the image visually on the left without changing the HTML order */
+  article.grid.col > div:first-child {
+    order: 2;
+  }
+
+  article.grid.col > div:last-child {
+    order: 1;
+  }
+
+  /* Constrain card height and apply ellipsis when text overflows */
+  article.grid.col {
+    max-height: 164px;
+    overflow: hidden;
+  }
+
+  article.grid.col h3.--text,
+  article.grid.col p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  article.grid.col h3.--text {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+
+  article.grid.col p {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
   }
 }
 
-/* more */
+aside {
+  margin-block: 1.5rem;
+}
 
 #more {
-  grid-area: aside;
-  margin-top: 52px;
-  header a {
-    justify-self: end;
-    align-items: center;
-    gap: 8px;
+  margin-top: 1rem;
 
-    span {
-      background-image: url(../assets/icons/ArrowRight1.svg);
-      background-repeat: no-repeat;
-      height: 16px;
-      width: 16px;
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & h3 {
+      font: var(--small);
     }
-    &:hover span {
-      background-image: url(../assets/icons/ArrowRightHover.svg);
+
+    & a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      strong {
+        font: var(--span);
+      }
+
+      span {
+        background-image: url(../assets/icons/ArrowRight1.svg);
+        background-repeat: no-repeat;
+        height: 16px;
+        width: 16px;
+      }
+      &:hover span {
+        background-image: url(../assets/icons/ArrowRightHover.svg);
+      }
     }
   }
+
+  .tag {
+    margin-bottom: 4px;
+  }
+
   h3 {
     font: var(--heading2);
-    margin-top: 8px;
+    margin: 0;
+  }
+
+  /* constrain card height + ellipsis on overflow */
+  article.grid.col {
+    max-height: 80px;
+    overflow: hidden;
+  }
+
+  article.grid.col h3.--text,
+  article.grid.col p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  article.grid.col h3.--text {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+
+  article.grid.col p {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 
   img {
@@ -162,6 +248,181 @@ section header {
   }
 }
 
-aside {
-  grid-area: aside;
+@media (width >= 80em) {
+  section header {
+    padding-block: 12px 24px;
+    font: var(--span);
+    border-top: 2px solid var(--stroke-color);
+  }
+
+  /* highlights */
+
+  #highlights {
+    grid-area: highlights;
+    grid-auto-flow: column;
+
+    gap: 16px;
+    .image {
+      display: block;
+      object-fit: cover;
+      height: 100%;
+      border-radius: 4px;
+    }
+    #highlights div:nth-child(5) {
+      grid-column: 1 / 3;
+      grid-row: 1 / 3;
+    }
+    .other-highlights {
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .highlight {
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(2, 6, 23, 0) 0%, #020617 100%);
+      }
+      figcaption {
+        position: absolute;
+        bottom: 0;
+        padding: 32px 12px 12px 12px;
+        h2 {
+          font: var(--heading3);
+          margin-top: 8px;
+        }
+      }
+    }
+    #first-highlight {
+      margin-top: 0;
+
+      figcaption {
+        padding: 72px 24px 24px 24px;
+      }
+    }
+  }
+
+  /* weekly */
+
+  #weekly {
+    grid-area: weekly;
+
+    & > div {
+      grid-auto-flow: column;
+    }
+
+    header a {
+      justify-self: end;
+      align-items: center;
+      gap: 8px;
+
+      span {
+        background-image: url(../assets/icons/ArrowRight1.svg);
+        background-repeat: no-repeat;
+        height: 16px;
+        width: 16px;
+      }
+      &:hover span {
+        background-image: url(../assets/icons/ArrowRightHover.svg);
+      }
+    }
+
+    & > div {
+      grid-template-columns: repeat(4, 292px);
+      justify-content: space-between;
+    }
+
+    img {
+      /* display: block;
+    object-fit: cover; */
+      height: 160px;
+      /* max-width: 100%; */
+      /* min-width: 100%; */
+    }
+    .weekly-card {
+      position: relative;
+      .tag {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+      }
+      p {
+        margin-top: 8px;
+        font-weight: 900;
+        font: var(--heading2);
+      }
+    }
+  }
+
+  /* ai */
+
+  #ai {
+    grid-area: ai;
+
+    header a {
+      justify-self: end;
+      align-items: center;
+      gap: 8px;
+
+      span {
+        background-image: url(../assets/icons/ArrowRight1.svg);
+        background-repeat: no-repeat;
+        height: 16px;
+        width: 16px;
+      }
+      &:hover span {
+        background-image: url(../assets/icons/ArrowRightHover.svg);
+      }
+    }
+
+    h3 {
+      font: var(--heading2);
+      margin-block: 8px 4px;
+    }
+
+    img {
+      object-fit: cover;
+      height: 176px;
+      aspect-ratio: 1/1;
+    }
+  }
+
+  /* more */
+
+  #more {
+    grid-area: aside;
+    margin-top: 52px;
+    header a {
+      justify-self: end;
+      align-items: center;
+      gap: 8px;
+
+      span {
+        background-image: url(../assets/icons/ArrowRight1.svg);
+        background-repeat: no-repeat;
+        height: 16px;
+        width: 16px;
+      }
+      &:hover span {
+        background-image: url(../assets/icons/ArrowRightHover.svg);
+      }
+    }
+    h3 {
+      font: var(--heading2);
+      margin-top: 8px;
+    }
+
+    img {
+      object-fit: cover;
+      height: 72px;
+      aspect-ratio: 1/1;
+    }
+  }
+
+  aside {
+    grid-area: aside;
+  }
 }
